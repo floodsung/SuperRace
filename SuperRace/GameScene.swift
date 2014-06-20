@@ -18,7 +18,6 @@ class GameScene: SKScene {
         configTrack()
         addCar()
         
-        
     }
     
     override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!)
@@ -29,14 +28,16 @@ class GameScene: SKScene {
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
         
+        if track.xScale == 2 {
+           track.update()
+        }
         
-        track.update()
     }
     
     func basicConfig(){
         backgroundColor = UIColor.blackColor()
         
-        physicsWorld.gravity = CGVectorMake(0, -3)
+        physicsWorld.gravity = CGVectorMake(0, 0)
 
     }
     
@@ -57,7 +58,10 @@ class GameScene: SKScene {
     {
         track.position = CGPointMake(512, 384)
         //track.zPosition = 0
-        //track.setScale(2)
+        track.setScale(9)
+        
+        track.runAction(SKAction.scaleTo(2, duration: 1))
+        
         addChild(track)
 
     }

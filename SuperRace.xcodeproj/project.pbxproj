@@ -52,15 +52,15 @@
 		4405D1011952D38500595973 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		4405D1031952D38500595973 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		4405D1061952D38500595973 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4405D1081952D38500595973 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4405D1081952D38500595973 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SuperRace/Images.xcassets; sourceTree = "<group>"; };
 		4405D10E1952D38500595973 /* SuperRaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SuperRaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4405D1131952D38500595973 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4405D1141952D38500595973 /* SuperRaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperRaceTests.swift; sourceTree = "<group>"; };
 		4405D1201952D3D900595973 /* MotionDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionDetector.swift; sourceTree = "<group>"; };
-		4405D1241952D4FA00595973 /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car.png; sourceTree = "<group>"; };
+		4405D1241952D4FA00595973 /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = car.png; path = SuperRace/car.png; sourceTree = "<group>"; };
 		4405D1281952E84A00595973 /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		4405D12A1953168A00595973 /* LoadingScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingScene.swift; sourceTree = "<group>"; };
-		4405D12C19531BB800595973 /* carIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carIcon.png; sourceTree = "<group>"; };
+		4405D12C19531BB800595973 /* carIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = carIcon.png; path = SuperRace/carIcon.png; sourceTree = "<group>"; };
 		444DE1731953E0DF006A417E /* trackBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackBackground.png; sourceTree = "<group>"; };
 		444DE1741953E0DF006A417E /* trackLeftDownIn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackLeftDownIn.png; sourceTree = "<group>"; };
 		444DE1751953E0DF006A417E /* trackLeftDownOut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackLeftDownOut.png; sourceTree = "<group>"; };
@@ -97,7 +97,7 @@
 		4405D0EF1952D38400595973 = {
 			isa = PBXGroup;
 			children = (
-				444DE1721953E0DF006A417E /* track */,
+				444DE18D1953E7C7006A417E /* Resources */,
 				4405D0FA1952D38500595973 /* SuperRace */,
 				4405D1111952D38500595973 /* SuperRaceTests */,
 				4405D0F91952D38500595973 /* Products */,
@@ -116,18 +116,15 @@
 		4405D0FA1952D38500595973 /* SuperRace */ = {
 			isa = PBXGroup;
 			children = (
-				4405D12C19531BB800595973 /* carIcon.png */,
+				4405D12A1953168A00595973 /* LoadingScene.swift */,
 				4405D1281952E84A00595973 /* Track.swift */,
-				4405D1241952D4FA00595973 /* car.png */,
 				4405D1201952D3D900595973 /* MotionDetector.swift */,
 				4405D0FD1952D38500595973 /* AppDelegate.swift */,
 				4405D0FF1952D38500595973 /* GameScene.sks */,
 				4405D1011952D38500595973 /* GameScene.swift */,
 				4405D1031952D38500595973 /* GameViewController.swift */,
 				4405D1051952D38500595973 /* Main.storyboard */,
-				4405D1081952D38500595973 /* Images.xcassets */,
 				4405D0FB1952D38500595973 /* Supporting Files */,
-				4405D12A1953168A00595973 /* LoadingScene.swift */,
 			);
 			path = SuperRace;
 			sourceTree = "<group>";
@@ -175,6 +172,17 @@
 				444DE17F1953E0DF006A417E /* trackUpDownRight.png */,
 			);
 			path = track;
+			sourceTree = "<group>";
+		};
+		444DE18D1953E7C7006A417E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4405D1241952D4FA00595973 /* car.png */,
+				4405D12C19531BB800595973 /* carIcon.png */,
+				4405D1081952D38500595973 /* Images.xcassets */,
+				444DE1721953E0DF006A417E /* track */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
