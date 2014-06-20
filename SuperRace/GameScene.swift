@@ -9,37 +9,57 @@
 import SpriteKit
 
 class GameScene: SKScene {
+
+    var car:SKSpriteNode!
+    let track = Track()
     override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!";
-        myLabel.fontSize = 65;
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
         
-        self.addChild(myLabel)
+        basicConfig()
+        configTrack()
+        addCar()
+        
+        
     }
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        /* Called when a touch begins */
-        
-        for touch: AnyObject in touches {
-            let location = touch.locationInNode(self)
-            
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
-            
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
-        }
+    override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!)
+    {
+        //car.runAction(SKAction.moveByX(0, y: 50, duration: 0.1))
     }
-   
+    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        
+        
+        track.update()
     }
+    
+    func basicConfig(){
+        backgroundColor = UIColor.blackColor()
+        
+        physicsWorld.gravity = CGVectorMake(0, -3)
+
+    }
+    
+    
+    func addCar()
+    {
+        
+        let carTexture = SKTexture(imageNamed:"car")
+        car = SKSpriteNode(texture:carTexture)
+        //car.zPosition = 1
+        car.physicsBody = SKPhysicsBody(texture:carTexture,size:car.size)
+        car.position = CGPointMake(size.width/2, size.height/2)
+        addChild(car)
+
+    }
+    
+    func configTrack()
+    {
+        track.position = CGPointMake(512, 384)
+        //track.zPosition = 0
+        //track.setScale(2)
+        addChild(track)
+
+    }
+    
 }

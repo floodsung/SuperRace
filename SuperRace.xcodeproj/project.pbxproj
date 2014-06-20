@@ -14,6 +14,24 @@
 		4405D1071952D38500595973 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4405D1051952D38500595973 /* Main.storyboard */; };
 		4405D1091952D38500595973 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4405D1081952D38500595973 /* Images.xcassets */; };
 		4405D1151952D38500595973 /* SuperRaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4405D1141952D38500595973 /* SuperRaceTests.swift */; };
+		4405D1211952D3D900595973 /* MotionDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4405D1201952D3D900595973 /* MotionDetector.swift */; };
+		4405D1251952D4FA00595973 /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = 4405D1241952D4FA00595973 /* car.png */; };
+		4405D1291952E84A00595973 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4405D1281952E84A00595973 /* Track.swift */; };
+		4405D12B1953168A00595973 /* LoadingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4405D12A1953168A00595973 /* LoadingScene.swift */; };
+		4405D12D19531BB800595973 /* carIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4405D12C19531BB800595973 /* carIcon.png */; };
+		444DE1801953E0DF006A417E /* trackBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 444DE1731953E0DF006A417E /* trackBackground.png */; };
+		444DE1811953E0DF006A417E /* trackLeftDownIn.png in Resources */ = {isa = PBXBuildFile; fileRef = 444DE1741953E0DF006A417E /* trackLeftDownIn.png */; };
+		444DE1821953E0DF006A417E /* trackLeftDownOut.png in Resources */ = {isa = PBXBuildFile; fileRef = 444DE1751953E0DF006A417E /* trackLeftDownOut.png */; };
+		444DE1831953E0DF006A417E /* trackLeftRightDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 444DE1761953E0DF006A417E /* trackLeftRightDown.png */; };
+		444DE1841953E0DF006A417E /* trackLeftRightUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 444DE1771953E0DF006A417E /* trackLeftRightUp.png */; };
+		444DE1851953E0DF006A417E /* trackLeftUpIn.png in Resources */ = {isa = PBXBuildFile; fileRef = 444DE1781953E0DF006A417E /* trackLeftUpIn.png */; };
+		444DE1861953E0DF006A417E /* trackLeftUpOut.png in Resources */ = {isa = PBXBuildFile; fileRef = 444DE1791953E0DF006A417E /* trackLeftUpOut.png */; };
+		444DE1871953E0DF006A417E /* trackRightDownIn.png in Resources */ = {isa = PBXBuildFile; fileRef = 444DE17A1953E0DF006A417E /* trackRightDownIn.png */; };
+		444DE1881953E0DF006A417E /* trackRightDownOut.png in Resources */ = {isa = PBXBuildFile; fileRef = 444DE17B1953E0DF006A417E /* trackRightDownOut.png */; };
+		444DE1891953E0DF006A417E /* trackRightUpIn.png in Resources */ = {isa = PBXBuildFile; fileRef = 444DE17C1953E0DF006A417E /* trackRightUpIn.png */; };
+		444DE18A1953E0DF006A417E /* trackRightUpOut.png in Resources */ = {isa = PBXBuildFile; fileRef = 444DE17D1953E0DF006A417E /* trackRightUpOut.png */; };
+		444DE18B1953E0DF006A417E /* trackUpDownLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 444DE17E1953E0DF006A417E /* trackUpDownLeft.png */; };
+		444DE18C1953E0DF006A417E /* trackUpDownRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 444DE17F1953E0DF006A417E /* trackUpDownRight.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +56,24 @@
 		4405D10E1952D38500595973 /* SuperRaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SuperRaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4405D1131952D38500595973 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4405D1141952D38500595973 /* SuperRaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperRaceTests.swift; sourceTree = "<group>"; };
+		4405D1201952D3D900595973 /* MotionDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionDetector.swift; sourceTree = "<group>"; };
+		4405D1241952D4FA00595973 /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = car.png; sourceTree = "<group>"; };
+		4405D1281952E84A00595973 /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		4405D12A1953168A00595973 /* LoadingScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingScene.swift; sourceTree = "<group>"; };
+		4405D12C19531BB800595973 /* carIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carIcon.png; sourceTree = "<group>"; };
+		444DE1731953E0DF006A417E /* trackBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackBackground.png; sourceTree = "<group>"; };
+		444DE1741953E0DF006A417E /* trackLeftDownIn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackLeftDownIn.png; sourceTree = "<group>"; };
+		444DE1751953E0DF006A417E /* trackLeftDownOut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackLeftDownOut.png; sourceTree = "<group>"; };
+		444DE1761953E0DF006A417E /* trackLeftRightDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackLeftRightDown.png; sourceTree = "<group>"; };
+		444DE1771953E0DF006A417E /* trackLeftRightUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackLeftRightUp.png; sourceTree = "<group>"; };
+		444DE1781953E0DF006A417E /* trackLeftUpIn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackLeftUpIn.png; sourceTree = "<group>"; };
+		444DE1791953E0DF006A417E /* trackLeftUpOut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackLeftUpOut.png; sourceTree = "<group>"; };
+		444DE17A1953E0DF006A417E /* trackRightDownIn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackRightDownIn.png; sourceTree = "<group>"; };
+		444DE17B1953E0DF006A417E /* trackRightDownOut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackRightDownOut.png; sourceTree = "<group>"; };
+		444DE17C1953E0DF006A417E /* trackRightUpIn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackRightUpIn.png; sourceTree = "<group>"; };
+		444DE17D1953E0DF006A417E /* trackRightUpOut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackRightUpOut.png; sourceTree = "<group>"; };
+		444DE17E1953E0DF006A417E /* trackUpDownLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackUpDownLeft.png; sourceTree = "<group>"; };
+		444DE17F1953E0DF006A417E /* trackUpDownRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackUpDownRight.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +97,7 @@
 		4405D0EF1952D38400595973 = {
 			isa = PBXGroup;
 			children = (
+				444DE1721953E0DF006A417E /* track */,
 				4405D0FA1952D38500595973 /* SuperRace */,
 				4405D1111952D38500595973 /* SuperRaceTests */,
 				4405D0F91952D38500595973 /* Products */,
@@ -79,6 +116,10 @@
 		4405D0FA1952D38500595973 /* SuperRace */ = {
 			isa = PBXGroup;
 			children = (
+				4405D12C19531BB800595973 /* carIcon.png */,
+				4405D1281952E84A00595973 /* Track.swift */,
+				4405D1241952D4FA00595973 /* car.png */,
+				4405D1201952D3D900595973 /* MotionDetector.swift */,
 				4405D0FD1952D38500595973 /* AppDelegate.swift */,
 				4405D0FF1952D38500595973 /* GameScene.sks */,
 				4405D1011952D38500595973 /* GameScene.swift */,
@@ -86,6 +127,7 @@
 				4405D1051952D38500595973 /* Main.storyboard */,
 				4405D1081952D38500595973 /* Images.xcassets */,
 				4405D0FB1952D38500595973 /* Supporting Files */,
+				4405D12A1953168A00595973 /* LoadingScene.swift */,
 			);
 			path = SuperRace;
 			sourceTree = "<group>";
@@ -113,6 +155,26 @@
 				4405D1131952D38500595973 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		444DE1721953E0DF006A417E /* track */ = {
+			isa = PBXGroup;
+			children = (
+				444DE1731953E0DF006A417E /* trackBackground.png */,
+				444DE1741953E0DF006A417E /* trackLeftDownIn.png */,
+				444DE1751953E0DF006A417E /* trackLeftDownOut.png */,
+				444DE1761953E0DF006A417E /* trackLeftRightDown.png */,
+				444DE1771953E0DF006A417E /* trackLeftRightUp.png */,
+				444DE1781953E0DF006A417E /* trackLeftUpIn.png */,
+				444DE1791953E0DF006A417E /* trackLeftUpOut.png */,
+				444DE17A1953E0DF006A417E /* trackRightDownIn.png */,
+				444DE17B1953E0DF006A417E /* trackRightDownOut.png */,
+				444DE17C1953E0DF006A417E /* trackRightUpIn.png */,
+				444DE17D1953E0DF006A417E /* trackRightUpOut.png */,
+				444DE17E1953E0DF006A417E /* trackUpDownLeft.png */,
+				444DE17F1953E0DF006A417E /* trackUpDownRight.png */,
+			);
+			path = track;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,8 +258,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				4405D1091952D38500595973 /* Images.xcassets in Resources */,
+				444DE1831953E0DF006A417E /* trackLeftRightDown.png in Resources */,
+				444DE1801953E0DF006A417E /* trackBackground.png in Resources */,
+				4405D12D19531BB800595973 /* carIcon.png in Resources */,
+				444DE1841953E0DF006A417E /* trackLeftRightUp.png in Resources */,
+				444DE1891953E0DF006A417E /* trackRightUpIn.png in Resources */,
+				444DE18A1953E0DF006A417E /* trackRightUpOut.png in Resources */,
+				444DE18C1953E0DF006A417E /* trackUpDownRight.png in Resources */,
 				4405D1001952D38500595973 /* GameScene.sks in Resources */,
+				444DE1861953E0DF006A417E /* trackLeftUpOut.png in Resources */,
+				4405D1251952D4FA00595973 /* car.png in Resources */,
 				4405D1071952D38500595973 /* Main.storyboard in Resources */,
+				444DE1881953E0DF006A417E /* trackRightDownOut.png in Resources */,
+				444DE18B1953E0DF006A417E /* trackUpDownLeft.png in Resources */,
+				444DE1811953E0DF006A417E /* trackLeftDownIn.png in Resources */,
+				444DE1871953E0DF006A417E /* trackRightDownIn.png in Resources */,
+				444DE1851953E0DF006A417E /* trackLeftUpIn.png in Resources */,
+				444DE1821953E0DF006A417E /* trackLeftDownOut.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,8 +293,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4405D1021952D38500595973 /* GameScene.swift in Sources */,
+				4405D12B1953168A00595973 /* LoadingScene.swift in Sources */,
+				4405D1291952E84A00595973 /* Track.swift in Sources */,
 				4405D1041952D38500595973 /* GameViewController.swift in Sources */,
 				4405D0FE1952D38500595973 /* AppDelegate.swift in Sources */,
+				4405D1211952D3D900595973 /* MotionDetector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +487,7 @@
 				4405D11A1952D38500595973 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4405D11B1952D38500595973 /* Build configuration list for PBXNativeTarget "SuperRaceTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +496,7 @@
 				4405D11D1952D38500595973 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
