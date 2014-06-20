@@ -25,21 +25,55 @@ enum TrackDirection{
     case Right
 }
 
-let TRACK_PART_WIDTH:CGFloat = 300
+let TRACK_PART_WIDTH:CGFloat = 300.0
 
 class Track:SKNode {
     
     var count = 0
     var lastPart:TrackPart!
     
+    func addAndRemoveParts()
+    {
+        // add and remove track part
+        
+        for node:AnyObject in children {
+            
+            let part  = node as TrackPart
+            if fabs(CDouble(part.position.x)) < 150 && fabs(CDouble(part.position.y)) < 150 {
+                //println("part NO: \(part.count)")
+                
+                if count - part.count < 2 {
+                    createNextPart()
+                }
+                
+                /*
+                if part.count > 2 {
+                for node:AnyObject in children {
+                
+                let littlePart = node as TrackPart
+                if littlePart.count < part.count - 3{
+                littlePart.runAction(SKAction.removeFromParent())
+                }
+                }
+                
+                }
+                */
+            }
+        }
+
+    }
+    
     func update()
     {
+        
         // 1 rotate and move the sprites
         let motionManager = MotionDetector.sharedInstance.motionManager
         
         let yaw = motionManager.deviceMotion.attitude.yaw
-            
+        
         let rotateAction = SKAction.rotateToAngle(CGFloat(-yaw), duration: 0)
+        runAction(rotateAction)
+        
         let move = CGVectorMake(CGFloat(-4*sin(CDouble(zRotation))),CGFloat(-4*cos(CDouble(zRotation))))
         
         let moveAction = SKAction.moveBy(move, duration: 0)
@@ -48,43 +82,8 @@ class Track:SKNode {
             (sprite as SKNode).runAction(moveAction)
         }
         
-        runAction(rotateAction)
         
-        // add and remove track part
-        
-        for node:AnyObject in children {
-            
-            let part  = node as TrackPart
-            if fabs(CDouble(part.position.x)) < 150 && fabs(CDouble(part.position.y)) < 150 {
-                println("part NO: \(part.count)")
-                
-                if count - part.count < 3 {
-                    createNextPart()
-                }
-                
-                if part.count > 4 {
-                   for node:AnyObject in children {
-                    
-                        let littlePart = node as TrackPart
-                    if littlePart.count < part.count - 3{
-                        littlePart.runAction(SKAction.removeFromParent())
-                    }
-                    }
-                    
-                }
-                
-            }
-        }
-        
-       
-        
-        
-        
-        
-            
-        
-        
-        
+   
     }
     
     func createNextPart()
@@ -140,7 +139,11 @@ class Track:SKNode {
             
         }
         
+        
+        
         addChild(nextPart)
+        
+        nextPart.runAction(SKAction.sequence([SKAction.waitForDuration(6),SKAction.removeFromParent()]))
         
         lastPart = nextPart
     }
@@ -151,7 +154,7 @@ class Track:SKNode {
         
         addInitParts()
         
-        
+        NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "addAndRemoveParts", userInfo: nil, repeats: true)
         
     }
     
@@ -159,16 +162,19 @@ class Track:SKNode {
     {
         let part1 = TrackPart(type: .UpDown, direction: .Up, position: CGPointMake(0, -TRACK_PART_WIDTH),count:++count)
         addChild(part1)
+        part1.runAction(SKAction.sequence([SKAction.waitForDuration(5),SKAction.fadeOutWithDuration(0.5),SKAction.removeFromParent()]))
         lastPart = part1
         
         
         let part2 = TrackPart(type: .UpDown, direction: .Up, position: nextPosition(.Up, lastNode: lastPart),count:++count
         )
         addChild(part2)
+        part2.runAction(SKAction.sequence([SKAction.waitForDuration(5),SKAction.fadeOutWithDuration(0.5),SKAction.removeFromParent()]))
         lastPart = part2
         
         let part3 = TrackPart(type: .RightDown, direction: .Right, position: nextPosition(.Up, lastNode: lastPart),count:++count)
         addChild(part3)
+        part3.runAction(SKAction.sequence([SKAction.waitForDuration(5),SKAction.fadeOutWithDuration(0.5),SKAction.removeFromParent()]))
     
         lastPart = part3
     
@@ -178,18 +184,16 @@ class Track:SKNode {
     
     func nextPosition(direction:TrackDirection,lastNode:SKNode)->CGPoint
     {
-        let offsetSin = TRACK_PART_WIDTH * CGFloat(sin(CDouble(lastNode.zRotation)))
-        let offsetCos = TRACK_PART_WIDTH * CGFloat(cos(CDouble(lastNode.zRotation)))
         
         switch direction{
         case .Up:
-            return CGPointMake(lastNode.position.x + offsetSin, lastNode.position.y + offsetCos)
+            return CGPointMake(lastNode.position.x, lastNode.position.y + TRACK_PART_WIDTH)
         case .Down:
-            return CGPointMake(lastNode.position.x - offsetSin, lastNode.position.y - offsetCos)
+            return CGPointMake(lastNode.position.x, lastNode.position.y - TRACK_PART_WIDTH)
         case .Left:
-            return CGPointMake(lastNode.position.x - offsetCos, lastNode.position.y + offsetSin)
+            return CGPointMake(lastNode.position.x - TRACK_PART_WIDTH, lastNode.position.y)
         case .Right:
-            return CGPointMake(lastNode.position.x + offsetCos, lastNode.position.y - offsetSin)
+            return CGPointMake(lastNode.position.x + TRACK_PART_WIDTH, lastNode.position.y)
 
         }
     }
@@ -214,6 +218,7 @@ class TrackPart:SKNode
         self.position = position
         name = "TrackPart"
         addPart(type)
+
         
     }
     
