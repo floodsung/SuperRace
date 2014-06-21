@@ -31,56 +31,75 @@ class Track:SKNode {
     
     var count = 0
     var lastPart:TrackPart!
+    var velocity = 4.0
+    
+    
     
     func addAndRemoveParts()
     {
         // add and remove track part
-        
-        for node:AnyObject in children {
+        //var currentCount:Int?
+        for i in 0..children.count {
             
-            let part  = node as TrackPart
-            if fabs(CDouble(part.position.x)) < 150 && fabs(CDouble(part.position.y)) < 150 {
-                //println("part NO: \(part.count)")
+            let part  = children[i] as TrackPart
+            if part.containsPoint(CGPointZero) {
                 
+                //currentCount = part.count
                 if count - part.count < 2 {
+                    //println("current part direction: \(part.direction)")
                     createNextPart()
+                    if i > 2 {
+                        (children[i-2] as TrackPart).zPosition = -10
+                        (children[i-2] as TrackPart).setPhysicsBodyNil()
+
+                    }
+                    
                 }
                 
-                /*
-                if part.count > 2 {
-                for node:AnyObject in children {
-                
-                let littlePart = node as TrackPart
-                if littlePart.count < part.count - 3{
-                littlePart.runAction(SKAction.removeFromParent())
-                }
-                }
-                
-                }
-                */
+                break
+           
             }
         }
-
+        
+    /*
+        if let aCount = currentCount {
+            
+            for node:AnyObject in children {
+                let part  = node as TrackPart
+                if part.count == aCount - 1 {
+                    println("delete \(part.count)")
+                    part.zPosition = -10
+                    part.setPhysicsBodyNil()
+                }
+            }
+        }
+    */
     }
     
     func update()
     {
         
-        // 1 rotate and move the sprites
-        let motionManager = MotionDetector.sharedInstance.motionManager
+        if count % 10 == 0 {
+            velocity += 0.01
+        }
         
-        let yaw = motionManager.deviceMotion.attitude.yaw
+        let yaw = SRMotionDetector.sharedInstance().rotationDegree()
         
-        let rotateAction = SKAction.rotateToAngle(CGFloat(-yaw), duration: 0)
-        runAction(rotateAction)
+        zRotation = CGFloat(-yaw)
         
-        let move = CGVectorMake(CGFloat(-4*sin(CDouble(zRotation))),CGFloat(-4*cos(CDouble(zRotation))))
+        
+        //println("zRotation:\(zRotation)")
+        
+        addAndRemoveParts()
+        
+        let move = CGVectorMake(CGFloat(-velocity*sin(-yaw)),CGFloat(-velocity*cos(-yaw)))
         
         let moveAction = SKAction.moveBy(move, duration: 0)
         
         for sprite : AnyObject in children {
             (sprite as SKNode).runAction(moveAction)
         }
+
         
         
    
@@ -139,11 +158,7 @@ class Track:SKNode {
             
         }
         
-        
-        
         addChild(nextPart)
-        
-        nextPart.runAction(SKAction.sequence([SKAction.waitForDuration(6),SKAction.removeFromParent()]))
         
         lastPart = nextPart
     }
@@ -154,30 +169,23 @@ class Track:SKNode {
         
         addInitParts()
         
-        NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "addAndRemoveParts", userInfo: nil, repeats: true)
-        
     }
     
     func addInitParts()
     {
         let part1 = TrackPart(type: .UpDown, direction: .Up, position: CGPointMake(0, -TRACK_PART_WIDTH),count:++count)
         addChild(part1)
-        part1.runAction(SKAction.sequence([SKAction.waitForDuration(5),SKAction.fadeOutWithDuration(0.5),SKAction.removeFromParent()]))
         lastPart = part1
         
         
         let part2 = TrackPart(type: .UpDown, direction: .Up, position: nextPosition(.Up, lastNode: lastPart),count:++count
         )
         addChild(part2)
-        part2.runAction(SKAction.sequence([SKAction.waitForDuration(5),SKAction.fadeOutWithDuration(0.5),SKAction.removeFromParent()]))
+        
         lastPart = part2
         
-        let part3 = TrackPart(type: .RightDown, direction: .Right, position: nextPosition(.Up, lastNode: lastPart),count:++count)
-        addChild(part3)
-        part3.runAction(SKAction.sequence([SKAction.waitForDuration(5),SKAction.fadeOutWithDuration(0.5),SKAction.removeFromParent()]))
-    
-        lastPart = part3
-    
+        createNextPart()
+
 
     }
     
@@ -208,6 +216,19 @@ class TrackPart:SKNode
     let direction:TrackDirection
     let count:Int
     
+    let trackLeftDownInTexture = SKTexture(imageNamed:"trackLeftDownIn")
+    let trackLeftDownOutTexture = SKTexture(imageNamed:"trackLeftDownOut")
+    let trackLeftRightDownTexture = SKTexture(imageNamed:"trackLeftRightDown")
+    let trackLeftRightUpTexture = SKTexture(imageNamed:"trackLeftRightUp")
+    let trackLeftUpInTexture = SKTexture(imageNamed:"trackLeftUpIn")
+    let trackLeftUpOutTexture = SKTexture(imageNamed:"trackLeftUpOut")
+    let trackRightDownInTexture = SKTexture(imageNamed:"trackRightDownIn")
+    let trackRightDownOutTexture = SKTexture(imageNamed:"trackRightDownOut")
+    let trackRightUpInTexture = SKTexture(imageNamed:"trackRightUpIn")
+    let trackRightUpOutTexture = SKTexture(imageNamed:"trackRightUpOut")
+    let trackUpDownLeftTexture = SKTexture(imageNamed:"trackUpDownLeft")
+    let trackUpDownRightTexture = SKTexture(imageNamed:"trackUpDownRight")
+    
     init(type:TrackPartType,direction:TrackDirection,position:CGPoint,count:Int)
     {
         self.type = type
@@ -219,50 +240,65 @@ class TrackPart:SKNode
         name = "TrackPart"
         addPart(type)
 
+        runAction(SKAction.sequence([SKAction.waitForDuration(6),SKAction.removeFromParent()]))
         
+    }
+    
+    func setPhysicsBodyNil(){
+        for child:AnyObject in children {
+            (child as SKNode).physicsBody = nil
+        }
     }
     
     func addPart(type:TrackPartType){
         
         switch type {
         case .LeftDown :
-            addPartWithTextures("trackLeftDownIn", texture2Name: "trackLeftDownOut")
+            addPartWithTextures( trackLeftDownInTexture, texture2: trackLeftDownOutTexture)
         case .LeftRight:
-            addPartWithTextures("trackLeftRightDown", texture2Name: "trackLeftRightUp")
+            addPartWithTextures(trackLeftRightDownTexture, texture2: trackLeftRightUpTexture)
         case .LeftUp:
-            addPartWithTextures("trackLeftUpIn", texture2Name: "trackLeftUpOut")
+            addPartWithTextures(trackLeftUpInTexture, texture2: trackLeftUpOutTexture)
         case .RightDown:
-            addPartWithTextures("trackRightDownIn", texture2Name: "trackRightDownOut")
+            addPartWithTextures(trackRightDownInTexture, texture2: trackRightDownOutTexture)
         case .RightUp:
-            addPartWithTextures("trackRightUpIn", texture2Name: "trackRightUpOut")
+            addPartWithTextures(trackRightUpInTexture, texture2: trackRightUpOutTexture)
         case .UpDown:
-            addPartWithTextures("trackUpDownLeft", texture2Name: "trackUpDownRight")
-            
+            addPartWithTextures(trackUpDownLeftTexture, texture2: trackUpDownRightTexture)
             
         }
     }
     
     
-    func addPartWithTextures(texture1Name:String,texture2Name:String)
+    func addPartWithTextures(texture1:SKTexture,texture2:SKTexture)
     {
-        let part1Texture = SKTexture(imageNamed:texture1Name)
-        let part2Texture = SKTexture(imageNamed:texture2Name)
-        let part1 = SKSpriteNode(texture:part1Texture)
-        let part2 = SKSpriteNode(texture:part2Texture)
+        //let part1Texture = SKTexture(imageNamed:texture1Name)
+        //let part2Texture = SKTexture(imageNamed:texture2Name)
+        let part1 = SKSpriteNode(texture:texture1)
+        let part2 = SKSpriteNode(texture:texture2)
         
-        part1.physicsBody = SKPhysicsBody(texture:part1Texture,size:part1.size)
-        part2.physicsBody = SKPhysicsBody(texture:part2Texture,size:part2.size)
+        part1.physicsBody = SKPhysicsBody(texture:texture1,size:part1.size)
+        part2.physicsBody = SKPhysicsBody(texture:texture2,size:part2.size)
         part1.physicsBody.dynamic = false
         part2.physicsBody.dynamic = false
         
         addChild(part1)
         addChild(part2)
         
+        part2.physicsBody.categoryBitMask = 2
+        part2.physicsBody.collisionBitMask = 1
+        part2.physicsBody.contactTestBitMask = 1
+        
+        part2.physicsBody.categoryBitMask = 2
+        part2.physicsBody.collisionBitMask = 1
+        part2.physicsBody.contactTestBitMask = 1
+        
         
         let backgroundTexture = SKTexture(imageNamed:"trackBackground")
         let background = SKSpriteNode(texture:backgroundTexture)
         background.zPosition = -1
         addChild(background)
+        
     }
 
 }

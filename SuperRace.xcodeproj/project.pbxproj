@@ -32,6 +32,10 @@
 		444DE18A1953E0DF006A417E /* trackRightUpOut.png in Resources */ = {isa = PBXBuildFile; fileRef = 444DE17D1953E0DF006A417E /* trackRightUpOut.png */; };
 		444DE18B1953E0DF006A417E /* trackUpDownLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 444DE17E1953E0DF006A417E /* trackUpDownLeft.png */; };
 		444DE18C1953E0DF006A417E /* trackUpDownRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 444DE17F1953E0DF006A417E /* trackUpDownRight.png */; };
+		444DE18F1954497F006A417E /* bgMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 444DE18E1954497F006A417E /* bgMusic.mp3 */; };
+		444DE193195529EA006A417E /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 444DE192195529EA006A417E /* GLKit.framework */; };
+		444DE19719552A09006A417E /* SRMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 444DE19619552A09006A417E /* SRMath.m */; };
+		444DE19A19552C90006A417E /* SRMotionDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 444DE19919552C90006A417E /* SRMotionDetector.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +78,13 @@
 		444DE17D1953E0DF006A417E /* trackRightUpOut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackRightUpOut.png; sourceTree = "<group>"; };
 		444DE17E1953E0DF006A417E /* trackUpDownLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackUpDownLeft.png; sourceTree = "<group>"; };
 		444DE17F1953E0DF006A417E /* trackUpDownRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackUpDownRight.png; sourceTree = "<group>"; };
+		444DE18E1954497F006A417E /* bgMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgMusic.mp3; sourceTree = "<group>"; };
+		444DE192195529EA006A417E /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		444DE19419552A08006A417E /* SuperRace-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SuperRace-Bridging-Header.h"; sourceTree = "<group>"; };
+		444DE19519552A09006A417E /* SRMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRMath.h; sourceTree = "<group>"; };
+		444DE19619552A09006A417E /* SRMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRMath.m; sourceTree = "<group>"; };
+		444DE19819552C90006A417E /* SRMotionDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRMotionDetector.h; sourceTree = "<group>"; };
+		444DE19919552C90006A417E /* SRMotionDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRMotionDetector.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				444DE193195529EA006A417E /* GLKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +109,7 @@
 		4405D0EF1952D38400595973 = {
 			isa = PBXGroup;
 			children = (
+				444DE192195529EA006A417E /* GLKit.framework */,
 				444DE18D1953E7C7006A417E /* Resources */,
 				4405D0FA1952D38500595973 /* SuperRace */,
 				4405D1111952D38500595973 /* SuperRaceTests */,
@@ -116,6 +129,10 @@
 		4405D0FA1952D38500595973 /* SuperRace */ = {
 			isa = PBXGroup;
 			children = (
+				444DE19819552C90006A417E /* SRMotionDetector.h */,
+				444DE19919552C90006A417E /* SRMotionDetector.m */,
+				444DE19519552A09006A417E /* SRMath.h */,
+				444DE19619552A09006A417E /* SRMath.m */,
 				4405D12A1953168A00595973 /* LoadingScene.swift */,
 				4405D1281952E84A00595973 /* Track.swift */,
 				4405D1201952D3D900595973 /* MotionDetector.swift */,
@@ -125,6 +142,7 @@
 				4405D1031952D38500595973 /* GameViewController.swift */,
 				4405D1051952D38500595973 /* Main.storyboard */,
 				4405D0FB1952D38500595973 /* Supporting Files */,
+				444DE19419552A08006A417E /* SuperRace-Bridging-Header.h */,
 			);
 			path = SuperRace;
 			sourceTree = "<group>";
@@ -177,6 +195,7 @@
 		444DE18D1953E7C7006A417E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				444DE18E1954497F006A417E /* bgMusic.mp3 */,
 				4405D1241952D4FA00595973 /* car.png */,
 				4405D12C19531BB800595973 /* carIcon.png */,
 				4405D1081952D38500595973 /* Images.xcassets */,
@@ -234,6 +253,7 @@
 				TargetAttributes = {
 					4405D0F71952D38500595973 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = RZGSSCAQVM;
 					};
 					4405D10D1952D38500595973 = {
 						CreatedOnToolsVersion = 6.0;
@@ -276,6 +296,7 @@
 				4405D1001952D38500595973 /* GameScene.sks in Resources */,
 				444DE1861953E0DF006A417E /* trackLeftUpOut.png in Resources */,
 				4405D1251952D4FA00595973 /* car.png in Resources */,
+				444DE18F1954497F006A417E /* bgMusic.mp3 in Resources */,
 				4405D1071952D38500595973 /* Main.storyboard in Resources */,
 				444DE1881953E0DF006A417E /* trackRightDownOut.png in Resources */,
 				444DE18B1953E0DF006A417E /* trackUpDownLeft.png in Resources */,
@@ -303,8 +324,10 @@
 				4405D1021952D38500595973 /* GameScene.swift in Sources */,
 				4405D12B1953168A00595973 /* LoadingScene.swift in Sources */,
 				4405D1291952E84A00595973 /* Track.swift in Sources */,
+				444DE19719552A09006A417E /* SRMath.m in Sources */,
 				4405D1041952D38500595973 /* GameViewController.swift in Sources */,
 				4405D0FE1952D38500595973 /* AppDelegate.swift in Sources */,
+				444DE19A19552C90006A417E /* SRMotionDetector.m in Sources */,
 				4405D1211952D3D900595973 /* MotionDetector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,9 +446,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SuperRace/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "SuperRace/SuperRace-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -434,9 +463,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SuperRace/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "SuperRace/SuperRace-Bridging-Header.h";
 			};
 			name = Release;
 		};

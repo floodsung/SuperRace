@@ -36,7 +36,7 @@ class GameViewController: UIViewController {
             
         /* Sprite Kit applies additional optimizations to improve rendering performance */
         skView.ignoresSiblingOrder = true
-            
+        
         
         
         let scene = LoadingScene(size:view.frame.size)
@@ -44,12 +44,17 @@ class GameViewController: UIViewController {
         scene.scaleMode = .AspectFill
         skView.presentScene(scene)
 
-        MotionDetector.sharedInstance.startMotionUpdate()
+        //MotionDetector.sharedInstance.startMotionUpdate()
+        SRMotionDetector.sharedInstance().startUpdate()
+        //SRMotionDetector.sharedInstance().startDetect()
+        
     }
 
     override func viewDidUnload()
     {
-        MotionDetector.sharedInstance.stopMotionUpdate()
+        //MotionDetector.sharedInstance.stopMotionUpdate()
+        //SRMotionDetector.sharedInstance().stopDetect()
+        SRMotionDetector.sharedInstance().stopUpdate()
     }
     
     override func shouldAutorotate() -> Bool {

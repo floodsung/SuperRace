@@ -8,14 +8,23 @@
 
 import CoreMotion
 
-let instance = MotionDetector()
-
 class MotionDetector{
     
     let motionManager = CMMotionManager()
+    var yaw = 0.0
+    var timer:NSTimer? = nil
+    
     
     class var sharedInstance:MotionDetector {
-    return instance
+    struct Static {
+        static var onceToken:dispatch_once_t = 0
+        static var instance:MotionDetector? = nil
+        }
+        dispatch_once(&Static.onceToken){
+            Static.instance = MotionDetector()
+        }
+        
+        return Static.instance!
     }
     
     init(){
@@ -44,5 +53,28 @@ class MotionDetector{
         }
     }
     
+    func startMotionDetect()
+    {
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: "motionDataAnalyse", userInfo: nil, repeats: true)
+        
+    }
+    
+    func stopMotionDetect()
+    {
+        timer!.invalidate()
+    }
+    
+    func reset()
+    {
+        stopMotionDetect()
+        stopMotionUpdate()
+        startMotionUpdate()
+        startMotionDetect()
+    }
+    
+    func motionDataAnalyse()
+    {
+    
+    }
     
 }
