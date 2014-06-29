@@ -49,8 +49,8 @@ class Track:SKNode {
                     //println("current part direction: \(part.direction)")
                     createNextPart()
                     if i > 2 {
-                        (children[i-2] as TrackPart).zPosition = -10
-                        (children[i-2] as TrackPart).setPhysicsBodyNil()
+                        (children[i-1] as TrackPart).zPosition = -10
+                        (children[i-1] as TrackPart).setPhysicsBodyNil()
 
                     }
                     
@@ -85,14 +85,13 @@ class Track:SKNode {
         
         let yaw = SRMotionDetector.sharedInstance().rotationDegree()
         
-        zRotation = CGFloat(-yaw)
         
         
         //println("zRotation:\(zRotation)")
         
         addAndRemoveParts()
         
-        let move = CGVectorMake(CGFloat(-velocity*sin(-yaw)),CGFloat(-velocity*cos(-yaw)))
+        let move = CGVectorMake(CGFloat(-velocity*sin(CDouble(zRotation))),CGFloat(-velocity*cos(CDouble(zRotation))))
         
         let moveAction = SKAction.moveBy(move, duration: 0)
         
@@ -100,7 +99,8 @@ class Track:SKNode {
             (sprite as SKNode).runAction(moveAction)
         }
 
-        
+        zRotation = CGFloat(-yaw)
+
         
    
     }
@@ -240,7 +240,7 @@ class TrackPart:SKNode
         name = "TrackPart"
         addPart(type)
 
-        runAction(SKAction.sequence([SKAction.waitForDuration(6),SKAction.removeFromParent()]))
+        runAction(SKAction.sequence([SKAction.waitForDuration(5),SKAction.removeFromParent()]))
         
     }
     

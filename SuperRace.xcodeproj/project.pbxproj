@@ -19,6 +19,7 @@
 		4405D1291952E84A00595973 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4405D1281952E84A00595973 /* Track.swift */; };
 		4405D12B1953168A00595973 /* LoadingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4405D12A1953168A00595973 /* LoadingScene.swift */; };
 		4405D12D19531BB800595973 /* carIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4405D12C19531BB800595973 /* carIcon.png */; };
+		44108F49195929DB00EE00DF /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44108F48195929DB00EE00DF /* GameKit.framework */; };
 		444DE1801953E0DF006A417E /* trackBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 444DE1731953E0DF006A417E /* trackBackground.png */; };
 		444DE1811953E0DF006A417E /* trackLeftDownIn.png in Resources */ = {isa = PBXBuildFile; fileRef = 444DE1741953E0DF006A417E /* trackLeftDownIn.png */; };
 		444DE1821953E0DF006A417E /* trackLeftDownOut.png in Resources */ = {isa = PBXBuildFile; fileRef = 444DE1751953E0DF006A417E /* trackLeftDownOut.png */; };
@@ -65,6 +66,7 @@
 		4405D1281952E84A00595973 /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		4405D12A1953168A00595973 /* LoadingScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingScene.swift; sourceTree = "<group>"; };
 		4405D12C19531BB800595973 /* carIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = carIcon.png; path = SuperRace/carIcon.png; sourceTree = "<group>"; };
+		44108F48195929DB00EE00DF /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		444DE1731953E0DF006A417E /* trackBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackBackground.png; sourceTree = "<group>"; };
 		444DE1741953E0DF006A417E /* trackLeftDownIn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackLeftDownIn.png; sourceTree = "<group>"; };
 		444DE1751953E0DF006A417E /* trackLeftDownOut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trackLeftDownOut.png; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				444DE193195529EA006A417E /* GLKit.framework in Frameworks */,
+				44108F49195929DB00EE00DF /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +112,7 @@
 		4405D0EF1952D38400595973 = {
 			isa = PBXGroup;
 			children = (
+				44108F48195929DB00EE00DF /* GameKit.framework */,
 				444DE192195529EA006A417E /* GLKit.framework */,
 				444DE18D1953E7C7006A417E /* Resources */,
 				4405D0FA1952D38500595973 /* SuperRace */,
@@ -253,7 +257,11 @@
 				TargetAttributes = {
 					4405D0F71952D38500595973 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = RZGSSCAQVM;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+						};
 					};
 					4405D10D1952D38500595973 = {
 						CreatedOnToolsVersion = 6.0;
