@@ -208,6 +208,19 @@ class Track:SKNode {
     
 }
 
+let trackLeftDownInTexture = SKTexture(imageNamed:"trackLeftDownIn")
+let trackLeftDownOutTexture = SKTexture(imageNamed:"trackLeftDownOut")
+let trackLeftRightDownTexture = SKTexture(imageNamed:"trackLeftRightDown")
+let trackLeftRightUpTexture = SKTexture(imageNamed:"trackLeftRightUp")
+let trackLeftUpInTexture = SKTexture(imageNamed:"trackLeftUpIn")
+let trackLeftUpOutTexture = SKTexture(imageNamed:"trackLeftUpOut")
+let trackRightDownInTexture = SKTexture(imageNamed:"trackRightDownIn")
+let trackRightDownOutTexture = SKTexture(imageNamed:"trackRightDownOut")
+let trackRightUpInTexture = SKTexture(imageNamed:"trackRightUpIn")
+let trackRightUpOutTexture = SKTexture(imageNamed:"trackRightUpOut")
+let trackUpDownLeftTexture = SKTexture(imageNamed:"trackUpDownLeft")
+let trackUpDownRightTexture = SKTexture(imageNamed:"trackUpDownRight")
+let backgroundTexture = SKTexture(imageNamed:"trackBackground")
 
 
 class TrackPart:SKNode
@@ -216,18 +229,6 @@ class TrackPart:SKNode
     let direction:TrackDirection
     let count:Int
     
-    let trackLeftDownInTexture = SKTexture(imageNamed:"trackLeftDownIn")
-    let trackLeftDownOutTexture = SKTexture(imageNamed:"trackLeftDownOut")
-    let trackLeftRightDownTexture = SKTexture(imageNamed:"trackLeftRightDown")
-    let trackLeftRightUpTexture = SKTexture(imageNamed:"trackLeftRightUp")
-    let trackLeftUpInTexture = SKTexture(imageNamed:"trackLeftUpIn")
-    let trackLeftUpOutTexture = SKTexture(imageNamed:"trackLeftUpOut")
-    let trackRightDownInTexture = SKTexture(imageNamed:"trackRightDownIn")
-    let trackRightDownOutTexture = SKTexture(imageNamed:"trackRightDownOut")
-    let trackRightUpInTexture = SKTexture(imageNamed:"trackRightUpIn")
-    let trackRightUpOutTexture = SKTexture(imageNamed:"trackRightUpOut")
-    let trackUpDownLeftTexture = SKTexture(imageNamed:"trackUpDownLeft")
-    let trackUpDownRightTexture = SKTexture(imageNamed:"trackUpDownRight")
     
     init(type:TrackPartType,direction:TrackDirection,position:CGPoint,count:Int)
     {
@@ -285,16 +286,16 @@ class TrackPart:SKNode
         addChild(part1)
         addChild(part2)
         
-        part2.physicsBody.categoryBitMask = 2
-        part2.physicsBody.collisionBitMask = 1
-        part2.physicsBody.contactTestBitMask = 1
+        part1.physicsBody.categoryBitMask = 2
+        part1.physicsBody.collisionBitMask = 1
+        part1.physicsBody.contactTestBitMask = 1
         
         part2.physicsBody.categoryBitMask = 2
         part2.physicsBody.collisionBitMask = 1
         part2.physicsBody.contactTestBitMask = 1
         
         
-        let backgroundTexture = SKTexture(imageNamed:"trackBackground")
+        
         let background = SKSpriteNode(texture:backgroundTexture)
         background.zPosition = -1
         addChild(background)
