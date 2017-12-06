@@ -38,12 +38,12 @@ class GameViewController: UIViewController {
         skView.ignoresSiblingOrder = true
         
         
-        
+        NSLog( "Load Scene")
         let scene = LoadingScene(size:view.frame.size)
         /* Set the scale mode to scale to fit the window */
         scene.scaleMode = .AspectFill
         skView.presentScene(scene)
-
+        NSLog("Load Complet")
         //MotionDetector.sharedInstance.startMotionUpdate()
         SRMotionDetector.sharedInstance().startUpdate()
         //SRMotionDetector.sharedInstance().startDetect()
